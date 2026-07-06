@@ -13,7 +13,7 @@
   var BOOKING   = 'https://www.apartmentcleaningservicelongislandcity.us/booking-page';
   var HOME      = 'https://www.apartmentcleaningservicelongislandcity.us';
   /* IMPORTANT: set this to the public URL where THIS file is hosted */
-  var EMBED_SRC = 'https://irp.cdn-website.com/8315e02e/files/uploaded/clc-widget.js';
+  var EMBED_SRC = 'https://cdn.jsdelivr.net/gh/dior1985/clc-widget@main/clc-widget.js';
   var FONTS     = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap';
 
   var CSS = `
