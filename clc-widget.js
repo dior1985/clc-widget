@@ -1,18 +1,16 @@
 /* ============================================================
    NYC Cleaning Cost & Time Calculator — embeddable widget
-   Host this file, then embed anywhere with:
+   Embed anywhere with:
      <div data-clc-widget></div>
-     <script src="https://irp.cdn-website.com/8315e02e/files/uploaded/clc-widget.js"></script>
-   Tune the CONSTANTS block with your real booking data.
+     <script src="https://cdn.jsdelivr.net/gh/dior1985/clc-widget@main/clc-widget.js"></script>
    ============================================================ */
 (function () {
   "use strict";
 
-  /* ---- your links (edit these) ---- */
-  var CANONICAL = 'https://www.apartmentcleaningservicelongislandcity.us/cleaning-cost-calculator';
+  /* ---- links ---- */
+  var SHARE_URL = 'https://www.apartmentcleaningservicelongislandcity.us';
   var BOOKING   = 'https://www.apartmentcleaningservicelongislandcity.us/booking-page';
   var HOME      = 'https://www.apartmentcleaningservicelongislandcity.us';
-  /* IMPORTANT: set this to the public URL where THIS file is hosted */
   var EMBED_SRC = 'https://cdn.jsdelivr.net/gh/dior1985/clc-widget@main/clc-widget.js';
   var FONTS     = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap';
 
@@ -68,7 +66,6 @@
   .clc-stat.time .k::before{background:var(--rose);animation-delay:1s}
   @keyframes clcPulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.5);opacity:1}}
   .clc-stat .v{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4vw,2.9rem);line-height:1;color:var(--ink)}
-  .clc-stat .v small{font-size:1rem;color:var(--stone);font-weight:500;font-family:var(--sans)}
   .clc-range{font-size:.78rem;color:var(--stone);font-weight:300;margin-top:5px}
   .clc-compare{margin:20px 0 26px;padding:13px 16px;border-radius:10px;background:var(--cream);border:1px solid var(--line);font-size:.82rem;color:var(--stone);font-weight:300;line-height:1.5}
   .clc-compare b{color:var(--ink);font-weight:600}
@@ -99,7 +96,7 @@
   .clc-copied.show{opacity:1}
   .clc-cite{position:relative;z-index:1;margin:0 40px 40px;padding:20px 22px;background:var(--cream);border:1px dashed var(--line);border-radius:12px}
   .clc-cite .ct{font-size:.6rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px}
-  .clc-cite textarea{width:100%;height:70px;resize:none;border:1px solid var(--line);border-radius:8px;background:var(--white);padding:10px 12px;font-family:ui-monospace,Menlo,monospace;font-size:.72rem;color:var(--stone);line-height:1.5}
+  .clc-cite textarea{width:100%;height:80px;resize:none;border:1px solid var(--line);border-radius:8px;background:var(--white);padding:10px 12px;font-family:ui-monospace,Menlo,monospace;font-size:.72rem;color:var(--stone);line-height:1.5}
   .clc-cite small{display:block;color:var(--stone);font-weight:300;font-size:.72rem;margin-top:8px}
   .clc-foot{position:relative;z-index:1;padding:16px 40px;border-top:1px solid var(--line);font-size:.68rem;color:var(--stone);font-weight:300;letter-spacing:.03em;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .clc-foot a{color:var(--gold-deep);text-decoration:none;font-weight:500}
@@ -125,33 +122,33 @@
       '<p class="hint">Adjust your home below. Estimates update instantly.</p>'+
       '<div class="clc-field"><span class="lbl">Cleaning Type</span>'+
         '<div class="clc-seg" data-group="type">'+
-          '<button data-val="standard" class="on">Standard</button>'+
-          '<button data-val="deep">Deep Clean</button>'+
-          '<button data-val="moveout">Move-Out</button></div></div>'+
+          '<button type="button" data-val="standard" class="on">Standard</button>'+
+          '<button type="button" data-val="deep">Deep Clean</button>'+
+          '<button type="button" data-val="moveout">Move-Out</button></div></div>'+
       '<div class="clc-row2">'+
         '<div class="clc-field"><span class="lbl">Bedrooms</span>'+
           '<div class="clc-step" data-step="beds" data-min="0" data-max="6">'+
-            '<button data-d="-1">&minus;</button><span class="num">1</span><button data-d="1">+</button></div></div>'+
+            '<button type="button" data-d="-1">&minus;</button><span class="num">1</span><button type="button" data-d="1">+</button></div></div>'+
         '<div class="clc-field"><span class="lbl">Bathrooms</span>'+
           '<div class="clc-step" data-step="baths" data-min="1" data-max="6">'+
-            '<button data-d="-1">&minus;</button><span class="num">1</span><button data-d="1">+</button></div></div></div>'+
+            '<button type="button" data-d="-1">&minus;</button><span class="num">1</span><button type="button" data-d="1">+</button></div></div></div>'+
       '<div class="clc-field"><span class="lbl">Approx. Size</span>'+
         '<div class="clc-seg" data-group="size">'+
-          '<button data-val="500" class="on">Studio &middot; &le;500</button>'+
-          '<button data-val="800">Small &middot; 500&ndash;900</button>'+
-          '<button data-val="1200">Medium &middot; 900&ndash;1400</button>'+
-          '<button data-val="1800">Large &middot; 1400+</button></div></div>'+
+          '<button type="button" data-val="500" class="on">Studio &middot; &le;500</button>'+
+          '<button type="button" data-val="800">Small &middot; 500&ndash;900</button>'+
+          '<button type="button" data-val="1200">Medium &middot; 900&ndash;1400</button>'+
+          '<button type="button" data-val="1800">Large &middot; 1400+</button></div></div>'+
       '<div class="clc-field"><span class="lbl">Last Cleaned</span>'+
         '<div class="clc-seg" data-group="since">'+
-          '<button data-val="1" class="on">Recently</button>'+
-          '<button data-val="1.12">1 month</button>'+
-          '<button data-val="1.28">3+ months</button>'+
-          '<button data-val="1.45">Never / new</button></div></div>'+
+          '<button type="button" data-val="1" class="on">Recently</button>'+
+          '<button type="button" data-val="1.12">1 month</button>'+
+          '<button type="button" data-val="1.28">3+ months</button>'+
+          '<button type="button" data-val="1.45">Never / new</button></div></div>'+
       '<div class="clc-field"><span class="lbl">Pets at Home</span>'+
         '<div class="clc-seg" data-group="pets">'+
-          '<button data-val="0" class="on">None</button>'+
-          '<button data-val="1">1</button>'+
-          '<button data-val="2">2+</button></div></div>'+
+          '<button type="button" data-val="0" class="on">None</button>'+
+          '<button type="button" data-val="1">1</button>'+
+          '<button type="button" data-val="2">2+</button></div></div>'+
     '</div>'+
     '<div class="clc-result">'+
       '<div class="clc-headline">'+
@@ -165,7 +162,7 @@
       '<div class="clc-break"><h3>Room-by-Room Breakdown</h3><div class="clc-bars"></div></div>'+
       '<div class="clc-actions">'+
         '<a class="clc-btn clc-book" href="'+BOOKING+'"><span>Book This Clean</span></a>'+
-        '<button class="clc-btn ghost clc-share">Copy Shareable Link</button>'+
+        '<button type="button" class="clc-btn ghost clc-share">Copy Shareable Link</button>'+
         '<span class="clc-copied">Link copied &#10003;</span></div>'+
     '</div>'+
   '</div>'+
@@ -194,7 +191,7 @@
     root.innerHTML = HTML;
     var $=function(s){return root.querySelector(s);};
 
-    /* ========== CONSTANTS — tune with your real booking data ========== */
+    /* ==== CONSTANTS — tune with your real booking data ==== */
     var TYPE = {
       standard:{mult:1.00, rate:55},
       deep:    {mult:1.55, rate:65},
@@ -204,7 +201,7 @@
     var SQFT_MIN_PER_100 = 4;
     var PET_MIN_EACH = 12;
     var CITY_AVG_MIN = 165;
-    /* ================================================================== */
+    /* ======================================================= */
 
     var state = {type:'standard', beds:1, baths:1, size:500, since:1, pets:0};
 
@@ -231,12 +228,7 @@
       var totalMin=raw*t.mult*state.since;
       rooms.forEach(function(r){r.adj=r.min*t.mult*state.since;});
       var price=Math.max((totalMin/60)*t.rate,90);
-      return {rooms:rooms, totalMin:totalMin, price:Math.round(price/10)*10, t:t};
-    }
-
-    function shareCode(){
-      var tc=({standard:'s',deep:'d',moveout:'m'})[state.type];
-      return [tc,state.beds,state.baths,state.size,state.since,state.pets].join('-');
+      return {rooms:rooms, totalMin:totalMin, price:Math.round(price/10)*10};
     }
 
     function render(){
@@ -262,9 +254,7 @@
         root.querySelectorAll('.clc-fill').forEach(function(f){f.style.width=f.getAttribute('data-w')+'%';});
       });});
 
-      $('.clc-book').href=BOOKING+'?type='+state.type+'&beds='+state.beds+'&baths='+state.baths+'&est='+r.price;
       $('.clc-embed').value='<div data-clc-widget></div>\n<'+'script src="'+EMBED_SRC+'"><'+'/script>\n<p>Cleaning cost calculator by <a href="'+HOME+'">Apartment Cleaning Service Long Island City</a></p>';
-      root._share=CANONICAL+'?clc='+shareCode();
     }
 
     function syncControls(){
@@ -302,10 +292,13 @@
     });
 
     $('.clc-share').addEventListener('click',function(){
-      var url=root._share||CANONICAL;
+      var url=SHARE_URL;
       var done=function(){var c=$('.clc-copied'); c.classList.add('show'); setTimeout(function(){c.classList.remove('show');},1800);};
       if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done,done);}
-      else{var t=$('.clc-embed'); t.select(); try{document.execCommand('copy');}catch(e){} done();}
+      else{
+        var t=document.createElement('textarea'); t.value=url; document.body.appendChild(t);
+        t.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(t); done();
+      }
     });
     $('.clc-embed').addEventListener('click',function(){this.select();});
     $('.clc-date').textContent=new Date().toLocaleDateString('en-US',{month:'long',year:'numeric'});
